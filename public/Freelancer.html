@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer</title>
+
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="toast-container"></div>
+    
+    <div class="container">
+
+        <header class="header">
+            <h1 class="logo">Freelancer</h1>
+            <p class="subtitle">Gestiona tus proyectos y contratos fácilmente</p>
+        </header>
+
+        <div class="auth-card">
+
+            <div class="tabs">
+                <button id="loginTab" class="tab tab-active" onclick="showLogin()">
+                    Iniciar Sesión
+                </button>
+                <button id="signupTab" class="tab" onclick="showSignup()">
+                    Registrarse
+                </button>
+            </div>
+
+            <div id="loginForm" class="form-container">
+                <form onsubmit="handleLogin(event)">
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="loginEmail" class="form-input" required placeholder="Correo electronico">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" id="loginPassword" class="form-input" required placeholder="Contraseña">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Iniciar Sesión
+                    </button>
+
+                    <p class="form-footer">
+                        <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+                    </p>
+                </form>
+            </div>
+
+            <div id="signupForm" class="form-container hidden">
+                <form onsubmit="handleSignup(event)">
+
+                    <div class="form-group">
+                        <label class="form-label">Tipo de cuenta</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="userType" value="freelancer" checked>
+                                <span>Freelancer</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="userType" value="empresa">
+                                <span>Empresa</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nombre completo</label>
+                        <input type="text" id="signupName" class="form-input" required placeholder="Nombre">
+                        <input type="text" id="signupLastName" class="form-input" required placeholder="Apellido">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="signupEmail" class="form-input" required placeholder="Correo electronico">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" id="signupPassword" class="form-input" required minlength="6"
+                            placeholder="Mínimo 6 caracteres">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Confirmar contraseña</label>
+                        <input type="password" id="signupPasswordConfirm" class="form-input" required
+                            placeholder="Repite tu contraseña">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Crear Cuenta
+                    </button>
+
+                    <p class="form-footer form-footer-small">
+                        Al registrarte, aceptas nuestros
+                        <a href="#" class="link">Términos y Condiciones</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            ¿Necesitas ayuda? <a href="#" class="link">Contáctanos</a>
+        </footer>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+
+</html>

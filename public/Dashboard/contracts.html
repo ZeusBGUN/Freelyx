@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratos - Freelancer</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeLogoutModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cerrar Sesión</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cerrar sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeLogoutModal()">Cancelar</button>
+                <button class="btn-danger" onclick="confirmLogout()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">Freelancer</h2>
+        </div>
+
+        <nav class="sidebar-nav" id="sidebarNav">
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-logout" onclick="logout()">
+                <span class="icon">🚪</span>
+                <span>Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header">
+            <div class="header-left">
+                <h1 class="page-title">Mis Contratos</h1>
+            </div>
+            <div class="header-right">
+
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span id="userInitials">FL</span>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">Cargando...</p>
+                        <p class="user-role" id="userRole">Freelancer</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="filters-bar">
+            <div class="filter-group">
+                <label class="filter-label">Estado:</label>
+                <select id="filterStatus" class="filter-select" onchange="filterContracts()">
+                    <option value="all">Todos</option>
+                    <option value="pendiente">Pendientes</option>
+                    <option value="activo">Activos</option>
+                    <option value="completado">Completados</option>
+                    <option value="cancelado">Cancelados</option>
+                </select>
+                <button id="btnCreateContract" class="btn-primary hidden" onclick="goToCreateContract()">
+                    + Nuevo Contrato
+                </button>
+            </div>
+        </div>
+
+        <div class="contracts-container">
+            <div id="loadingMessage" class="empty-state">
+                <div class="empty-icon">⏳</div>
+                <p>Cargando contratos...</p>
+            </div>
+
+            <div id="emptyMessage" class="empty-state hidden">
+                <div class="empty-icon">📝</div>
+                <h3>No tienes contratos todavía</h3>
+                <p id="emptyText">Los contratos que te asignen aparecerán aquí</p>
+            </div>
+
+            <div id="contractsList" class="contracts-grid hidden">
+            </div>
+
+        </div>
+
+        <div id="deleteContractModal" class="modal hidden">
+            <div class="modal-backdrop" onclick="closeDeleteContractModal()"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Eliminar Contrato</h3>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de que deseas eliminar este contrato? Esta acción es irreversible.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" onclick="closeDeleteContractModal()">Cancelar</button>
+                    <button class="btn-danger" onclick="confirmDeleteContract()">Eliminar</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="contracts.js"></script>
+</body>
+
+</html>

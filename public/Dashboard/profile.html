@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Freelancer</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeLogoutModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cerrar Sesión</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cerrar sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeLogoutModal()">Cancelar</button>
+                <button class="btn-danger" onclick="confirmLogout()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+    
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">Freelancer</h2>
+        </div>
+        
+       <nav class="sidebar-nav" id="sidebarNav">
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="btn-logout" onclick="logout()">
+                <span class="icon">🚪</span>
+                <span>Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        
+         <header class="header">
+            <div class="header-left">
+                <h1 class="page-title">Mi Perfil</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span id="userInitials">FL</span>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">Cargando...</p>
+                        <p class="user-role" id="userRole">Freelancer</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="profile-container">
+            
+            <section class="profile-card">
+                <div class="profile-card-header">
+                    <h2 class="profile-card-title">Información Personal</h2>
+                    <button class="btn-edit" id="btnEditProfile" onclick="toggleEditMode()">
+                        ✏️ Editar
+                    </button>
+                </div>
+                
+                <form id="profileForm" class="profile-form">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Nombre</label>
+                            <input 
+                                type="text" 
+                                id="profileName" 
+                                class="form-input" 
+                                disabled
+                                required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Apellido</label>
+                            <input 
+                                type="text" 
+                                id="profileLastName" 
+                                class="form-input" 
+                                disabled
+                                required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input 
+                            type="email" 
+                            id="profileEmail" 
+                            class="form-input" 
+                            disabled
+                            required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Tipo de cuenta</label>
+                        <input 
+                            type="text" 
+                            id="profileUserType" 
+                            class="form-input" 
+                            disabled
+                            readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Miembro desde</label>
+                        <input 
+                            type="text" 
+                            id="profileCreatedAt" 
+                            class="form-input" 
+                            disabled
+                            readonly>
+                    </div>
+                    
+                    <div class="form-actions hidden" id="profileFormActions">
+                        <button type="button" class="btn-secondary" onclick="cancelEdit()">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            Guardar Cambios
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="profile-card">
+                <div class="profile-card-header">
+                    <h2 class="profile-card-title">Cambiar Contraseña</h2>
+                </div>
+                
+                <form id="passwordForm" class="profile-form" onsubmit="handlePasswordChange(event)">
+                    
+                    <div class="form-group">
+                        <label class="form-label">Contraseña Actual</label>
+                        <input 
+                            type="password" 
+                            id="currentPassword" 
+                            class="form-input" 
+                            placeholder="Ingresa tu contraseña actual"
+                            required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Nueva Contraseña</label>
+                        <input 
+                            type="password" 
+                            id="newPassword" 
+                            class="form-input" 
+                            placeholder="Mínimo 6 caracteres"
+                            minlength="6"
+                            required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confirmar Nueva Contraseña</label>
+                        <input 
+                            type="password" 
+                            id="confirmNewPassword" 
+                            class="form-input" 
+                            placeholder="Repite la nueva contraseña"
+                            required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            Cambiar Contraseña
+                        </button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="profile-card">
+                <div class="profile-card-header">
+                    <h2 class="profile-card-title">Estadísticas</h2>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <div class="profile-stat-icon">📋</div>
+                        <div class="profile-stat-info">
+                            <p class="profile-stat-value">12</p>
+                            <p class="profile-stat-label">Proyectos Completados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stat">
+                        <div class="profile-stat-icon">⭐</div>
+                        <div class="profile-stat-info">
+                            <p class="profile-stat-value">4.8</p>
+                            <p class="profile-stat-label">Calificación Promedio</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stat">
+                        <div class="profile-stat-icon">💰</div>
+                        <div class="profile-stat-info">
+                            <p class="profile-stat-value">$15,420</p>
+                            <p class="profile-stat-label">Ingresos Totales</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+
+    </main>
+
+    <script src="profile.js"></script>
+</body>
+</html>

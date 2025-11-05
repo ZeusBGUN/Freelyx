@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear contrato - Freelancer</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeLogoutModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cerrar Sesión</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cerrar sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeLogoutModal()">Cancelar</button>
+                <button class="btn-danger" onclick="confirmLogout()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">Freelancer</h2>
+        </div>
+
+        <nav class="sidebar-nav" id="sidebarNav">
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-logout" onclick="logout()">
+                <span class="icon">🚪</span>
+                <span>Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header">
+            <div class="header-left">
+                <button class="btn-back" onclick="goBack()">🚶‍♂️Volver</button>
+                <h1 class="page-title">Crear Nuevo Contrato</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span id="userInitials">EM</span>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">Cargando...</p>
+                        <p class="user-role">Empresa</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="create-contract-container">
+
+            <section class="profile-card">
+                <div class="profile-card-header">
+                    <h2 class="profile-card-title">Informacion del Contrato</h2>
+                </div>
+
+                <form id="createContractForm" class="profile-form" onsubmit="handleCreateContract(event)">
+
+                    <div class="form-group">
+                        <label class="form-label">Título del Proyecto *</label>
+                        <input type="text" id="contractTitle" class="form-input"
+                            placeholder="Ej: Desarrollo Web E-commerce" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Descripción *</label>
+                        <textarea id="contractDescription" class="form-textarea" rows="5"
+                            placeholder="Describe el proyecto, objetivos, entregables, ETC." required></textarea>
+                 </div>
+
+                 <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Monto *</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">$</span>
+                            <input 
+                            type="number"
+                            id="contractAmount"
+                            class="form-input input-with-left-icon"
+                            placeholder="1500"
+                            min="1"
+                            step="0.01"
+                            required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Moneda</label>
+                        <select id="contractCurrency" class="form-input">
+                            <option value="USD">USD - Dólar</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="USDT">USDT</option>
+                            <option value="ETH">Ethereum</option>
+                        </select>
+                    </div>
+                 </div>
+
+                 <div class="form-group">
+                    <label class="form-label">Freelancer *</label>
+                    <select id="contractFreelancer" class="form-input" required>
+                        <option value="">Selecciona un Freelancer</option>
+                    </select>
+                    <p class="form-help-text">Selecciona un Freelancer que trabajará en este proyecto</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Fecha de inicio *</label>
+                            <input 
+                            type="date"
+                            id="contractStartDate"
+                            class="form-input"
+                            required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Fecha de finalización *</label>
+                            <input 
+                            type="date" 
+                            id="contractEndDate" 
+                            class="form-input"
+                            required>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-icon">❕</div>
+                        <div class="info-content">
+                            <p><strong>Importante:</strong>Al crear el contrato, tu firma se registrará automáticamente. El freelancer deberá firmar para activar el contrato.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="goBack()">
+                            Cancelar
+                        </button>
+                        <button id="submit" class="btn-primary">
+                            Crear contrato
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="create-contract.js"></script>
+</body>
+</html>

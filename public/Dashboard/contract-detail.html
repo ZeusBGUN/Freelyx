@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Contrato - Freelancer</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeLogoutModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cerrar Sesión</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cerrar sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeLogoutModal()">Cancelar</button>
+                <button class="btn-danger" onclick="confirmLogout()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="signModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeSignModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Firmar Contrato</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas firmar este contrato?</p>
+                <p class="modal-warning">⚠️ Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeSignModal()">Cancelar</button>
+                <button class="btn-primary" onclick="confirmSign()">Firmar Contrato</button>
+            </div>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">Freelancer</h2>
+        </div>
+
+        <nav class="sidebar-nav" id="sidebarNav">
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-logout" onclick="logout()">
+                <span class="icon">🚪</span>
+                <span>Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header">
+            <div class="header-left">
+                <button class="btn-back" onclick="goBack()">← Volver</button>
+                <h1 class="page-title">Detalle del Contrato</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span id="userInitials">FL</span>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">Cargando...</p>
+                        <p class="user-role" id="userRole">Freelancer</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="loadingMessage" class="empty-state">
+            <div class="empty-icon">⏳</div>
+            <p>Cargando contrato...</p>
+        </div>
+
+        <div id="contractDetail" class="contract-detail-container hidden">
+
+            <section class="detail-card">
+                <div class="detail-card-header">
+                    <div>
+                        <h2 class="detail-title" id="contractTitle">Título del Contrato</h2>
+                        <div id="contractBadge" class="badge-container"></div>
+                    </div>
+                    <div class="detail-actions" id="contractActions">
+                    </div>
+                </div>
+
+                <div class="detail-card-body">
+                    <div class="detail-amount-section">
+                        <div class="detail-amount" id="contractAmount">$0</div>
+                        <p class="detail-amount-label">Monto del contrato</p>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3 class="detail-section-title">Descripción del Proyecto</h3>
+                        <p class="detail-description" id="contractDescription">Cargando...</p>
+                    </div>
+
+                    <div class="detail-dates">
+                        <div class="detail-date-item">
+                            <span class="detail-date-icon">📅</span>
+                            <div>
+                                <p class="detail-date-label">Fecha de Inicio</p>
+                                <p class="detail-date-value" id="contractStartDate">--/--/----</p>
+                            </div>
+                        </div>
+                        <div class="detail-date-item">
+                            <span class="detail-date-icon">🏁</span>
+                            <div>
+                                <p class="detail-date-label">Fecha de Finalización</p>
+                                <p class="detail-date-value" id="contractEndDate">--/--/----</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="detail-card">
+                <div class="detail-card-header">
+                    <h2 class="detail-card-title">Partes del Contrato</h2>
+                </div>
+
+                <div class="detail-card-body">
+                    <div class="parties-grid">
+                        <div class="party-card">
+                            <div class="party-header">
+                                <div class="party-avatar">
+                                    <span id="freelancerInitials">FL</span>
+                                </div>
+                                <div>
+                                    <p class="party-label">Freelancer</p>
+                                    <p class="party-name" id="freelancerName">Nombre del Freelancer</p>
+                                    <p class="party-email" id="freelancerEmail">email@example.com</p>
+                                </div>
+                            </div>
+                            <div class="party-signature" id="freelancerSignature">
+                                <span class="signature-icon">⏳</span>
+                                <span>Pendiente de firma</span>
+                            </div>
+                        </div>
+
+                        <div class="party-card">
+                            <div class="party-header">
+                                <div class="party-avatar party-avatar-company">
+                                    <span id="companyInitials">EM</span>
+                                </div>
+                                <div>
+                                    <p class="party-label">Empresa</p>
+                                    <p class="party-name" id="companyName">Nombre de la Empresa</p>
+                                    <p class="party-email" id="companyEmail">email@example.com</p>
+                                </div>
+                            </div>
+                            <div class="party-signature" id="companySignature">
+                                <span class="signature-icon">⏳</span>
+                                <span>Pendiente de firma</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="detail-card" id="statusChangeSection">
+                <div class="detail-card-header">
+                    <h2 class="detail-card-title">Cambiar Estado del Contrato</h2>
+                </div>
+
+                <div class="detail-card-body">
+                    <div class="status-change-form">
+                        <div class="form-group">
+                            <label class="form-label">Nuevo Estado</label>
+                            <select id="newStatus" class="form-input">
+                                <option value="activo">Activo</option>
+                                <option value="completado">Completado</option>
+                                <option value="cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary" onclick="changeContractStatus()">
+                            Actualizar Estado
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="detail-card">
+                <div class="detail-card-header">
+                    <h2 class="detail-card-title">Información Adicional</h2>
+                </div>
+
+                <div class="detail-card-body">
+                    <div class="detail-info-grid">
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">ID del Contrato</span>
+                            <span class="detail-info-value" id="contractId">-</span>
+                        </div>
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">Creado el</span>
+                            <span class="detail-info-value" id="contractCreatedAt">-</span>
+                        </div>
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">Última actualización</span>
+                            <span class="detail-info-value" id="contractUpdatedAt">-</span>
+                        </div>
+                        <div class="detail-info-item">
+                            <span class="detail-info-label">Moneda</span>
+                            <span class="detail-info-value" id="contractCurrency">USD</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="contracts-detail.js"></script>
+</body>
+
+</html>

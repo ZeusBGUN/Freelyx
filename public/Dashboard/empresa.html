@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Empresa</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">Freelancer</h2>
+        </div>
+
+        <nav class="sidebar-nav" id="sidebarNav">
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-logout" onclick="logout()">
+                <span class="icon">🚪</span>
+                <span>Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header">
+           <div class="header-left">
+                <h1 class="page-title">Dashboard Empresa</h1>
+           </div>
+           <div class="header-right">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span id="userInitials">EM</span>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">Cargando...</p>
+                        <p class="user-role">Empresa</p>
+                    </div>
+                </div>
+           </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🙋‍♀️🙋‍♂️</div>
+                <div class="stat-info">
+                    <p class="stat-label">Freelancers Activos</p>
+                    <p class="stat-value">8</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📂</div>
+                <div class="stat-info">
+                    <p class="stat-label">Proyectos en Curso</p>
+                    <p class="stat-value">5</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💵</div>
+                <div class="stat-info">
+                    <p class="stat-label">Inversion del Mes</p>
+                    <p class="stat-value">12,500$</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">👍</div>
+                <div class="stat-info">
+                    <p class="stat-label">Proyectos Completados</p>
+                    <p class="stat-value">23</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contracts-section">
+            <div class="section-header">
+                <h2 class="section-title">Proyectos activos</h2>
+                <button class="btn-primary">+ Nuevo Proyectos</button>
+            </div>
+
+            <div class="contracts-list">
+                <div class="contract-card">
+                    <div class="contract-header">
+                        <h3 class="contract-title">Rediseño de sitio Web corporativo</h3>
+                        <span class="badge badge-active">En progreso</span>
+                    </div>
+                    <p class="contract-client">Freelancer: Juan Pérez (Diseñador UI/UX)</p>
+                    <div class="contract-footer">
+                        <span class="contract-amount">3,500$</span>
+                        <span class="contract-date">Entrega: 25/11/2025</span>
+                    </div>
+                </div>
+
+                <div class="contract-card">
+                    <div class="contract-header">
+                        <h3 class="contract-title">Desarrollo de App Movil</h3>
+                        <span class="badge badge-active">En Progreso</span>
+                    </div>
+                    <p class="contract-client">Freelancer: María García (Desarrolladora Mobile)</p>
+                    <div class="contract-footer">
+                        <span class="contract-amount">8,000$</span>
+                        <span class="contract-date">Entrega: 10/12/2025</span>
+                    </div>
+                </div>
+
+                <div class="contract-card">
+                    <div class="contract-header">
+                        <h3 class="contract-title">Marketing Digital - Campaña Q4</h3>
+                        <span class="badge badge-pending">Revisión</span>
+                    </div>
+                    <p class="contract-client">Freelancer: Carlos López (Marketing)</p>
+                    <div class="contract-footer">
+                        <span class="contract-amount">2,200$</span>
+                        <span class="contract-date">Revisión pendiente</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contracts-section" style="margin-top: 24px">
+            <div class="section-header">
+                <h2 class="section-title">Freelancers Destacados</h2>
+                <a href="#" class="btn-link">Ver todos</a>
+            </div>
+
+            <div class="freelancers-grid">
+                <div class="freelancer-card">
+                    <div class="freelancer-avatar">JP</div>
+                    <h4 class="freelancer-name">Juan Pérez</h4>
+                    <p class="freelancer-specialty">Diseñador UI/UX</p>
+                    <div class="freelancer-rating">⭐ 4.9 (45 reviews)</div>
+                    <button class="btn-contact">Contactar</button>
+                </div>
+
+                <div class="freelancer-card">
+                    <div class="freelancer-avatar">MG</div>
+                    <h4 class="freelancer-name">María García</h4>
+                    <p class="freelancer-specialty">Desarrolladora Full Stack</p>
+                    <div class="freelancer-rating">⭐ 5.0 (32 reviews)</div>
+                    <button class="btn-contact">Contactar</button>
+                </div>
+
+                <div class="freelancer-card">
+                    <div class="freelancer-avatar">CL</div>
+                    <h4 class="freelancer-name">Carlos López</h4>
+                    <p class="freelancer-specialty">Marketing Digital</p>
+                    <div class="freelancer-rating">⭐ 4.8 (28 reviews)</div>
+                    <button class="btn-contact">Contactar</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeLogoutModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cerrar Sesión</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cerrar sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeLogoutModal()">
+                    Cancelar
+                </button>
+                <button class="btn-danger" onclick="confirmLogout()">
+                    Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

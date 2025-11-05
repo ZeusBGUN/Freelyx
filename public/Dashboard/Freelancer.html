@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Freelancer</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">Freelancer</h2>
+        </div>
+
+        <nav class="sidebar-nav" id="sidebarNav">
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-logout" onclick="logout()">
+                <span class="icon">🚪</span>
+                <span>Cerrar Sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header">
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span id="userInitials">FL</span>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name" id="userName">Cargando...</p>
+                        <p class="user-role">Freelancer</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div class="stat-info">
+                    <p class="stat-label">Contratos activos</p>
+                    <p class="stat-value">3</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💵</div>
+                <div class="stat-info">
+                    <p class="stat-label">Ingresos del Mes</p>
+                    <p class="stat-value">$2,450</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <p class="stat-label">Proyectos Completados</p>
+                    <p class="stat-value">12</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-info">
+                    <p class="stat-label">Calificación</p>
+                    <p class="stat-value">4.8</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contracts-section">
+            <div class="section-header">
+                <h2 class="section-title">Contratos Recientes</h2>
+                <a href="#" class="btn-link">Ver todos</a>
+            </div>
+
+            <div class="contracts-list">
+                <div class="contract-card">
+                    <div class="contract-header">
+                    <h3 class="contract-title">Desarrollo Web E-commerce</h3>
+                    <span class="badge badge-active">Activos</span>
+                </div>
+                <p class="contract-client">Cliente: tech Solutions S.A.</p>
+                <div class="contract-footer">
+                    <span class="contract-amount">1,500$</span>
+                    <span class="contract-date">Vence: 15/11/2025</span>
+                </div>
+            </div>
+
+            <div class="contract-card">
+                <div class="contract-header">
+                    <h3 class="contract-title">Diseño de Lading Page</h3>
+                    <span class="badge badge-pending">Pendiente</span>
+                </div>
+                <p class="contract-client">Cliente: Startup</p>
+                <div class="contract-footer">
+                    <span class="contract-amount">800$</span>
+                    <span class="contract-date">Vence: 20/11/2025</span>
+                </div>
+            </div>
+
+            <div class="contract-card">
+                <div class="contract-header">
+                    <h3 class="contract-title">App Móvil iOS</h3>
+                    <span class="badge badge-completed">Completado</span>
+                </div>
+                <p class="contract-client">Cliente: Mobile Innovations</p>
+                <div class="contract-footer">
+                    <span class="contract-amount">3,200$</span>
+                    <span class="contract-date">Completado: 05/11/2025</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeLogoutModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cerrar Sesión</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas cerrar sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeLogoutModal()">
+                    Cancelar
+                </button>
+                <button class="btn-danger" onclick="confirmLogout()">
+                    Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
