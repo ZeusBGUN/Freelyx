@@ -67,7 +67,7 @@ async function loadContract() {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/api/contracts/${contractId}`, {
+        const response = await fetch(`${API_URL}/contracts/${contractId}`, {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -238,7 +238,7 @@ async function confirmSign() {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch(`http://localhost:3000/api/contracts/${contractId}/sign`, {
+        const response = await fetch(`${API_URL}/contracts/${contractId}/sign`, {
             method: 'PUT',
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -276,7 +276,7 @@ async function changeContractStatus() {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/api/contracts/${contractId}/status`, {
+        const response = await fetch(`${API_URL}/contracts/${contractId}/status`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

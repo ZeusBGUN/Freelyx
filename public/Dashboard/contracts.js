@@ -66,7 +66,7 @@ async function loadContracts() {
     console.log('🔄 Cargando contratos...');
 
     try {
-        const response = await fetch('http://localhost:3000/api/contracts', {
+        const response = await fetch('${API_URL}/contracts', {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -360,10 +360,10 @@ async function _executeDeleteContract(contractId) {
     const token = localStorage.getItem('token');
     
     console.log(`Ejecutando DELETE para contrato ID: ${contractId}`);
-    console.log(`URL: http://localhost:3000/api/contracts/${contractId}`);
+    console.log(`URL: ${API_URL}/contracts/${contractId}`);
 
     try {
-        const response = await fetch(`http://localhost:3000/api/contracts/${contractId}`, {
+        const response = await fetch(`${API_URL}/contracts/${contractId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': 'Bearer ' + token,

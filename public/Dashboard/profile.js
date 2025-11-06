@@ -47,7 +47,7 @@ async function loadProfile(){
     const token = localStorage.getItem('token');
     
     try {
-        const response = await fetch('http://localhost:3000/api/users/profile', {
+        const response = await fetch('${API_URL}/users/profile', {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -132,7 +132,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
     const email = document.getElementById('profileEmail').value.trim();
     
     try {
-        const response = await fetch('http://localhost:3000/api/users/profile', {
+        const response = await fetch('${API_URL}/users/profile', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ async function handlePasswordChange(event){
     }
     
     try {
-        const response = await fetch('http://localhost:3000/api/users/password', {
+        const response = await fetch('${API_URL}/users/password', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -294,7 +294,7 @@ async function loadStats(){
     const token = localStorage.getItem('token');
     
     try {
-        const response = await fetch('http://localhost:3000/api/users/stats', {
+        const response = await fetch('${API_URL}/users/stats', {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token
