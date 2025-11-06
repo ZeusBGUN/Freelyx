@@ -66,7 +66,7 @@ async function loadContracts() {
     console.log('🔄 Cargando contratos...');
 
     try {
-        const response = await fetch('${API_URL}/contracts', {
+        const response = await fetch(`${API_URL}/contracts`, {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token

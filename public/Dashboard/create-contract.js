@@ -46,7 +46,7 @@ async function loadFreelancers(){
     const token = localStorage.getItem('token');
     
     try {
-        const response = await fetch('${API_URL}/users/freelancers', {
+        const response = await fetch(`${API_URL}/users/freelancers`, {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -140,7 +140,7 @@ async function handleCreateContract(event){
     console.log('📤 Enviando contrato:', contractData);
     
     try {
-        const response = await fetch('${API_URL}/contracts', {
+        const response = await fetch(`${API_URL}/contracts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

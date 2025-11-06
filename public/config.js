@@ -1,5 +1,5 @@
 const API_URL = window.location.hostname === 'localhost'
-    ? '${API_URL}'
+    ? 'http://localhost:3000/api'
     : '/api';
 
     console.log('API URL:', API_URL);

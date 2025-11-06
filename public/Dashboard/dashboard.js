@@ -79,7 +79,7 @@ async function loadStats(){
     const token = localStorage.getItem('token');
     
     try {
-        const response = await fetch('${API_URL}/users/stats', {
+        const response = await fetch(`${API_URL}/users/stats`, {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token
