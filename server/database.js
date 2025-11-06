@@ -1,13 +1,22 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
 
-const dbPath = path.join(__dirname, '../database/database.sqlite');
+const dbDir = path.join(__dirname, '../database');
+if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir, { recursive: true });
+    console.log('📁 Carpeta database creada');
+}
+
+const dbPath = path.join(dbDir, 'database.sqlite');
+
+console.log('📍 Ruta de base de datos:', dbPath);
 
 const db = new sqlite3.Database(dbPath, (err) => {
     if(err){
         console.error('❌ Error al conectar a la base de datos:', err);
     } else {
-        console.log('✅ Conectado a la base de datos SQLite en:', dbPath);
+        console.log('✅ Conectado a la base de datos SQLite');
     }
 });
 
