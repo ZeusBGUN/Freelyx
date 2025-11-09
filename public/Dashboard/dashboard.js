@@ -307,7 +307,7 @@ function loadDynamicSidebar(){
     
     if(user.userType === 'freelancer'){
         sidebarHTML = `
-            <a href="freelancer.html" class="nav-item${isActive('freelancer.html')}">
+            <a href="Freelancer.html" class="nav-item${isActive('freelancer.html')}">
                 <span class="icon">📊</span>
                 <span>Dashboard</span>
             </a>
