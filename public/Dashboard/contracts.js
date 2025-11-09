@@ -470,7 +470,7 @@ function loadDynamicSidebar(){
             </a>
             <a href="#" class="nav-item${isActive('buscar.html')}">
                 <span class="icon">🔍</span>
-                <span>Buscar Freelancers</span>
+                <span>Buscar Freelancer</span>
             </a>
             <a href="#" class="nav-item${isActive('proyectos.html')}">
                 <span class="icon">📂</span>
