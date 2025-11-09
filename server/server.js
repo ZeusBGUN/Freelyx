@@ -6,6 +6,8 @@ const db = require('./database');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const contractRoutes = require('./routes/contracts');
+const compression = require('compression');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,3 +32,10 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log('Servidor corriendo en http://localhost:' + PORT);
 });
+
+app.use(express.static(path.join(__dirname, '../public'), {
+    maxAge: '1d',
+    etag: true
+}));
+
+app.use(compression());

@@ -84,42 +84,50 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    try {
-        const { email, password } = req.body;
+    const { email, password } = req.body;
 
-        if (!email || !password) {
-            return res.status(400).json({
+    console.log('📥 Intento de login:', email);
+
+    if (!email || !password) {
+        return res.status(400).json({
+            success: false,
+            message: 'Email y contraseña son obligatorios'
+        });
+    }
+
+    db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
+        if (err) {
+            console.error('❌ Error en DB:', err);
+            return res.status(500).json({
                 success: false,
-                message: 'Email y contraseña son obligatorios'
+                message: 'Error en el servidor'
             });
         }
 
-        db.get('SELECT * FROM users WHERE email = ?', [email], async (err, user) => {
+        if (!user) {
+            console.log('⚠️ Usuario no encontrado');
+            return res.status(401).json({
+                success: false,
+                message: 'Credenciales inválidas'
+            });
+        }
+
+        bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err) {
+                console.error('❌ Error al comparar contraseñas:', err);
                 return res.status(500).json({
                     success: false,
                     message: 'Error en el servidor'
                 });
             }
 
-            if (!user) {
+            if (!isMatch) {
+                console.log('⚠️ Contraseña incorrecta');
                 return res.status(401).json({
                     success: false,
-                    message: 'Email o contraseña incorrectos'
+                    message: 'Credenciales inválidas'
                 });
             }
-
-            const isValidPassword = await bcrypt.compare(password, user.password);
-
-            if (!isValidPassword) {
-                return res.status(401).json({
-                    success: false,
-                    message: 'Email o contraseña incorrectos'
-                });
-            }
-
-            const lastLogin = new Date().toISOString();
-            db.run('UPDATE users SET lastLogin = ? WHERE id = ?', [lastLogin, user.id]);
 
             const token = jwt.sign(
                 {
@@ -131,10 +139,12 @@ router.post('/login', (req, res) => {
                 { expiresIn: '24h' }
             );
 
+            console.log('✅ Login exitoso:', user.email);
+
             res.status(200).json({
                 success: true,
                 message: 'Login exitoso',
-                token,
+                token: token,
                 user: {
                     id: user.id,
                     name: user.name,
@@ -144,14 +154,7 @@ router.post('/login', (req, res) => {
                 }
             });
         });
-
-    } catch (error) {
-        console.error('Error en /login:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Error en el servidor'
-        });
-    }
+    });
 });
 
 module.exports = router;

@@ -5,8 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear contrato - Freelancer</title>
+    <title>Freelyx - Crear contrato</title>
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" href="../PNGs/Solo logo.png" type="image/png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWMVH7RWXH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WWMVH7RWXH');
+    </script>
+
 </head>
 
 <body>
@@ -28,7 +39,7 @@
 
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h2 class="logo">Freelancer</h2>
+            <img src="../PNGs/Banner.png" alt="Banner" class="logo">
         </div>
 
         <nav class="sidebar-nav" id="sidebarNav">
@@ -81,67 +92,54 @@
                         <label class="form-label">Descripción *</label>
                         <textarea id="contractDescription" class="form-textarea" rows="5"
                             placeholder="Describe el proyecto, objetivos, entregables, ETC." required></textarea>
-                 </div>
+                    </div>
 
-                 <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Monto *</label>
-                        <div class="input-with-icon">
-                            <span class="input-icon">$</span>
-                            <input 
-                            type="number"
-                            id="contractAmount"
-                            class="form-input input-with-left-icon"
-                            placeholder="1500"
-                            min="1"
-                            step="0.01"
-                            required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Monto *</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">$</span>
+                                <input type="number" id="contractAmount" class="form-input input-with-left-icon"
+                                    placeholder="1500" min="1" step="0.01" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Moneda</label>
+                            <select id="contractCurrency" class="form-input">
+                                <option value="USD">USD - Dólar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="USDT">USDT</option>
+                                <option value="ETH">Ethereum</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Moneda</label>
-                        <select id="contractCurrency" class="form-input">
-                            <option value="USD">USD - Dólar</option>
-                            <option value="EUR">EUR - Euro</option>
-                            <option value="USDT">USDT</option>
-                            <option value="ETH">Ethereum</option>
+                        <label class="form-label">Freelancer *</label>
+                        <select id="contractFreelancer" class="form-input" required>
+                            <option value="">Selecciona un Freelancer</option>
                         </select>
-                    </div>
-                 </div>
-
-                 <div class="form-group">
-                    <label class="form-label">Freelancer *</label>
-                    <select id="contractFreelancer" class="form-input" required>
-                        <option value="">Selecciona un Freelancer</option>
-                    </select>
-                    <p class="form-help-text">Selecciona un Freelancer que trabajará en este proyecto</p>
+                        <p class="form-help-text">Selecciona un Freelancer que trabajará en este proyecto</p>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label">Fecha de inicio *</label>
-                            <input 
-                            type="date"
-                            id="contractStartDate"
-                            class="form-input"
-                            required>
+                            <input type="date" id="contractStartDate" class="form-input" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Fecha de finalización *</label>
-                            <input 
-                            type="date" 
-                            id="contractEndDate" 
-                            class="form-input"
-                            required>
+                            <input type="date" id="contractEndDate" class="form-input" required>
                         </div>
                     </div>
 
                     <div class="info-box">
                         <div class="info-icon">❕</div>
                         <div class="info-content">
-                            <p><strong>Importante:</strong>Al crear el contrato, tu firma se registrará automáticamente. El freelancer deberá firmar para activar el contrato.</p>
+                            <p><strong>Importante:</strong>Al crear el contrato, tu firma se registrará automáticamente.
+                                El freelancer deberá firmar para activar el contrato.</p>
                         </div>
                     </div>
 
@@ -158,8 +156,18 @@
 
         </div>
 
+        <footer>
+            <div class="footer-links">
+                <a href="../Terminos.html" class="footer-link">Términos y Condiciones</a>
+                <a href="../Privacidad.html" class="footer-link">Privacidad</a>
+            </div>
+            <p class="copyright">
+                &copy; 2025 Freelyx. Todos los derechos reservados.
+            </p>
+        </footer>
     </main>
     <script src="../config.js"></script>
     <script src="create-contract.js"></script>
 </body>
+
 </html>

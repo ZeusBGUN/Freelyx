@@ -4,15 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Empresa</title>
+    <title>Freelyx - Dashboard - Empresa</title>
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" href="../PNGs/Solo logo.png" type="image/png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWMVH7RWXH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WWMVH7RWXH');
+    </script>
+
 </head>
 
 <body>
 
+
+
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h2 class="logo">Freelancer</h2>
+            <img src="../PNGs/Banner.png" alt="Banner" class="logo">
         </div>
 
         <nav class="sidebar-nav" id="sidebarNav">
@@ -29,10 +42,10 @@
     <main class="main-content">
 
         <header class="header">
-           <div class="header-left">
+            <div class="header-left">
                 <h1 class="page-title">Dashboard Empresa</h1>
-           </div>
-           <div class="header-right">
+            </div>
+            <div class="header-right">
                 <div class="user-info">
                     <div class="user-avatar">
                         <span id="userInitials">EM</span>
@@ -42,7 +55,7 @@
                         <p class="user-role">Empresa</p>
                     </div>
                 </div>
-           </div>
+            </div>
         </header>
 
         <section class="stats-grid">
@@ -50,7 +63,7 @@
                 <div class="stat-icon">🙋‍♀️🙋‍♂️</div>
                 <div class="stat-info">
                     <p class="stat-label">Freelancers Activos</p>
-                    <p class="stat-value">8</p>
+                    <p class="stat-value">0</p>
                 </div>
             </div>
 
@@ -58,7 +71,7 @@
                 <div class="stat-icon">📂</div>
                 <div class="stat-info">
                     <p class="stat-label">Proyectos en Curso</p>
-                    <p class="stat-value">5</p>
+                    <p class="stat-value">0</p>
                 </div>
             </div>
 
@@ -66,7 +79,7 @@
                 <div class="stat-icon">💵</div>
                 <div class="stat-info">
                     <p class="stat-label">Inversion del Mes</p>
-                    <p class="stat-value">12,500$</p>
+                    <p class="stat-value">$0</p>
                 </div>
             </div>
 
@@ -74,7 +87,7 @@
                 <div class="stat-icon">👍</div>
                 <div class="stat-info">
                     <p class="stat-label">Proyectos Completados</p>
-                    <p class="stat-value">23</p>
+                    <p class="stat-value">0</p>
                 </div>
             </div>
         </section>
@@ -157,6 +170,15 @@
             </div>
         </section>
 
+        <footer>
+            <div class="footer-links">
+                <a href="../Terminos.html" class="footer-link">Términos y Condiciones</a>
+                <a href="../Privacidad.html" class="footer-link">Privacidad</a>
+            </div>
+            <p class="copyright">
+                &copy; 2025 Freelyx. Todos los derechos reservados.
+            </p>
+        </footer>
     </main>
 
     <div id="logoutModal" class="modal hidden">
@@ -178,7 +200,9 @@
             </div>
         </div>
     </div>
+    
     <script src="../config.js"></script>
     <script src="dashboard.js"></script>
 </body>
+
 </html>

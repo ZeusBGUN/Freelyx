@@ -4,21 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer</title>
+    <title>Freelyx - Login / SingUp</title>
 
-    <link rel="icon" href="data:,">
+    <link rel="icon" href="./PNGs/Solo logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWMVH7RWXH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WWMVH7RWXH');
+    </script>
 </head>
 
 <body>
 
     <div id="toast-container"></div>
-    
+
     <div class="container">
 
         <header class="header">
-            <h1 class="logo">Freelancer</h1>
-            <p class="subtitle">Gestiona tus proyectos y contratos fácilmente</p>
+            <h1 class="logo">Freelyx</h1>
+            <p class="subtitle">Encuentra clientes, haz crecer tu reputación y trabaja a tu manera desde cualquier lugar
+                del mundo.</p>
         </header>
 
         <div class="auth-card">
@@ -37,7 +47,8 @@
 
                     <div class="form-group">
                         <label class="form-label">Email</label>
-                        <input type="email" id="loginEmail" class="form-input" required placeholder="Correo electronico">
+                        <input type="email" id="loginEmail" class="form-input" required
+                            placeholder="Correo electronico">
                     </div>
 
                     <div class="form-group">
@@ -80,7 +91,8 @@
 
                     <div class="form-group">
                         <label class="form-label">Email</label>
-                        <input type="email" id="signupEmail" class="form-input" required placeholder="Correo electronico">
+                        <input type="email" id="signupEmail" class="form-input" required
+                            placeholder="Correo electronico">
                     </div>
 
                     <div class="form-group">
@@ -112,8 +124,6 @@
             ¿Necesitas ayuda? <a href="#" class="link">Contáctanos</a>
         </footer>
     </div>
-
-    
     <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
