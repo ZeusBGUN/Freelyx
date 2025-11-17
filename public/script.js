@@ -206,7 +206,7 @@ function redirectToDashboard(userType){
     console.log('🔄 Redirigiendo a dashboard:', userType);
     
     if(userType === 'freelancer'){
-        window.location.href = '/Dashboard/Freelancer.html';
+        window.location.href = '/Dashboard/freelancer.html';
     } else if(userType === 'empresa'){
         window.location.href = '/Dashboard/empresa.html';
     }
@@ -230,9 +230,9 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log('✅ Sesión activa detectada, redirigiendo...');
         
         if(userData.userType === 'freelancer'){
-            window.location.href = '/dashboard/freelancer.html';
+            window.location.href = '/Dashboard/freelancer.html';
         } else if(userData.userType === 'empresa'){
-            window.location.href = '/dashboard/empresa.html';
+            window.location.href = '/Dashboard/empresa.html';
         }
     }
 });
